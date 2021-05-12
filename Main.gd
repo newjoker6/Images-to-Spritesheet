@@ -132,13 +132,15 @@ func set_properties():
 	var SheetTheme = load("res://SpriteSheetTheme.tres")
 	var ContainerTheme = load("res://VBoxTheme.tres")
 	var EditorTheme = load("res://EditorTheme.tres")
+	var dir = OS.get_system_dir(OS.SYSTEM_DIR_PICTURES)
+
 	
 	FileBrowse.mode = 1
 	FileBrowse.access = 2
 	FileBrowse.set_filters(PoolStringArray(["*.png"]))
 	FileBrowse.window_title = "Add Sprites"
 	FileBrowse.set_theme(EditorTheme)
-	FileBrowse.set_current_dir("/")
+	FileBrowse.set_current_dir(dir)
 	
 	AddSpriteButton.text = "Add Sprite"
 	SaveButton.text = "Save Sheet"
@@ -195,6 +197,7 @@ func create_texture(image_path: String):
 	var texture = ImageTexture.new()
 	texture.create_from_image(img)
 	SpriteSheet.add_item("", texture)
+
 
 
 
